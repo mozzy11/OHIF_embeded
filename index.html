@@ -26,19 +26,6 @@
   <script src="https://unpkg.com/@ohif/viewer@4.9.4/dist/index.umd.js" crossorigin></script>
   <script>
   window.config = {
-    // ...
-    //extensions: [OHIFExtDicomMicroscopy ,OHIFExtDicomPdf],
-  };
-</script>	
-	
-  <script>
-    var containerId = "root";
-    var componentRenderedOrUpdatedCallback = function(){
-      console.log('OHIF Viewer rendered/updated');
-	    window.alert("bb");
-    }
-    window.OHIFViewer.installViewer(
-      {
       routerBasename: '/OHIF_embeded',
 	     servers: {
 		dicomWeb: [
@@ -53,7 +40,16 @@
 		  },
 		],
 	      },
-    }, containerId, componentRenderedOrUpdatedCallback);
+    };
+</script>	
+	
+  <script>
+    var containerId = "root";
+    var componentRenderedOrUpdatedCallback = function(){
+      console.log('OHIF Viewer rendered/updated');
+    }
+    window.OHIFViewer.installViewer(
+      window.config, containerId, componentRenderedOrUpdatedCallback);
 	</script>
 </body>
 
